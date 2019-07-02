@@ -1,0 +1,31 @@
+server:
+  port: 8000
+
+spring:
+  # 数据连接池
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    username: dev123
+    password:  3333123sa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/GH_DB?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    hikari:
+      minimum-idle: 5 # 最小空闲连接数量
+      maximum-pool-size: 1000 # 最大链接数
+      pool-name: GH@HikariDataSource
+      connection-timeout: 30000 # 连接超时时间
+      connection-test-query: SELECT 1 # 测试连接SQL
+  # 模板引擎
+  thymeleaf:
+    cache: false
+    prefix: classpath:/views/
+    suffix: .html
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper # mapper 文件路径
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: uuid
+  type-aliases-package: club.yuit.entity

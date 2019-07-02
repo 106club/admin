@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mapper xmlns="http://mybatis.org/schema/mybatis-mapper"
+        namespace="club.yuit.mapper.UserMapper">
+
+
+    <select id="findUserByUsername" parameterType="string" resultType="User">
+        select username,password from sys_user where username = #{username}
+    </select>
+
+
+</mapper>
