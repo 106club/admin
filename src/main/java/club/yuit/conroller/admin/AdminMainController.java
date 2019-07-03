@@ -21,7 +21,7 @@ import java.io.IOException;
 public class AdminMainController {
 
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String index(){
         return "admin/index";
     }

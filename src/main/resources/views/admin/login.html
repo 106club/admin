@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -15,23 +14,23 @@
     <div class="m-login">
         <h3>后台系统登录</h3>
         <div class="m-login-warp">
-            <form class="layui-form" action="/user/auth" method="post">
+            <form class="layui-form" th:action="'/user/auth'" method="post">
                 <div class="layui-form-item">
-                    <input type="text" name="title" required lay-verify="required" placeholder="用户名" autocomplete="off"
+                    <input type="text" name="username" required  placeholder="用户名" autocomplete="off"
                            class="layui-input">
                 </div>
                 <div class="layui-form-item">
-                    <input type="text" name="password" required lay-verify="required" placeholder="密码"
+                    <input type="text" name="password" required  placeholder="密码"
                            autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <input type="text" name="verity" required lay-verify="required" placeholder="验证码"
+                        <input type="text" name="pic_code" required lay-verify="required" placeholder="验证码"
                                autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-inline">
                         <img class="verifyImg" id="pc_code" onclick="changePictureCode()"
-                             src="/admin/picture_code"/>
+                             src="/admin/picture_code" title="点击刷新"/>
                     </div>
                 </div>
                 <div class="layui-form-item m-login-btn">
@@ -44,12 +43,13 @@
                 </div>
             </form>
         </div>
+        <p th:if="${param.error}" th:text="${param.error}"></p>
         <p class="copyright">Copyright 2015-2016 by XIAODU</p>
     </div>
 </div>
 <script src="/statics/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    layui.use(['form', 'layedit', 'laydate'], function () {
+    /*layui.use(['form', 'layedit', 'laydate'], function () {
         var form = layui.form(),
             layer = layui.layer;
 
@@ -75,7 +75,7 @@
             return false;
         });
 
-    });
+    });*/
 
 
     function changePictureCode() {

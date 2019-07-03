@@ -1,5 +1,5 @@
 layui.config({
-	base: '../../static/admin/js/module/'
+	base: '/statics/admin/js/module/'
 }).extend({
 	dialog: 'dialog',
 });

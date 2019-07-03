@@ -103,7 +103,7 @@ public class PictureCodeGenerator {
         ImageIO.write(image, "jpg", os);
         os.flush();
         os.close();
-        session.setAttribute("pc_code",code);
+        session.setAttribute("pic_code",code);
 
     }
 

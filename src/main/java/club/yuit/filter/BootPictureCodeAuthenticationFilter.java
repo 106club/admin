@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author yuit
@@ -39,9 +40,10 @@ public class BootPictureCodeAuthenticationFilter extends OncePerRequestFilter {
             // 图片验证码值
             String pCode = request.getParameter("pic_code");
 
+            response.setCharacterEncoding("UTF-8");
 
             if(StringUtils.isBlank(pCode)){
-                response.sendRedirect("/admin/login?error=code is blank");
+                response.sendRedirect("/admin/login?error=验证码错误");
                 return;
             }
 
@@ -50,12 +52,12 @@ public class BootPictureCodeAuthenticationFilter extends OncePerRequestFilter {
             String pRealCode= (String) session.getAttribute("pic_code");
 
             if (pRealCode==null){
-                response.sendRedirect("/admin/login?error=code is expire");
+                response.sendRedirect("/admin/login?error=验证码过期");
                 return;
             }
 
             if (!StringUtils.equalsIgnoreCase(pCode,pRealCode)){
-                response.sendRedirect("/admin/login?error=code is error");
+                response.sendRedirect("/admin/login?error=验证码错误");
                 return;
             }
 
