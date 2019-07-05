@@ -22,7 +22,7 @@ public class BootAuthFailureHandler implements AuthenticationFailureHandler {
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        response.sendRedirect("/admin/login?error=登录失败！检查用户名或密码");
+        HttpUtils.writerError(HttpResponseUtils.baseResponse(401,"登录失败！检查用户名和密码"),response);
     }
 
 

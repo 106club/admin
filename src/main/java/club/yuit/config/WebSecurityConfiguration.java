@@ -64,6 +64,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // 禁用 http basic 登录
                 .httpBasic().disable();
 
+        http.headers()
+                .frameOptions()
+                .sameOrigin();
+
+
+
         // 图片验证码，在用户认证之前
         http.addFilterBefore(this.pictureCodeAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

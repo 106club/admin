@@ -1,5 +1,7 @@
 package club.yuit.filter;
 
+import club.yuit.response.HttpResponseUtils;
+import club.yuit.utils.HttpUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
@@ -43,7 +45,7 @@ public class BootPictureCodeAuthenticationFilter extends OncePerRequestFilter {
             response.setCharacterEncoding("UTF-8");
 
             if(StringUtils.isBlank(pCode)){
-                response.sendRedirect("/admin/login?error=验证码错误");
+                HttpUtils.writerError(HttpResponseUtils.baseResponse(401,"验证码错误"),response);
                 return;
             }
 
@@ -52,12 +54,12 @@ public class BootPictureCodeAuthenticationFilter extends OncePerRequestFilter {
             String pRealCode= (String) session.getAttribute("pic_code");
 
             if (pRealCode==null){
-                response.sendRedirect("/admin/login?error=验证码过期");
+                HttpUtils.writerError(HttpResponseUtils.baseResponse(401,"验证码过期"),response);
                 return;
             }
 
             if (!StringUtils.equalsIgnoreCase(pCode,pRealCode)){
-                response.sendRedirect("/admin/login?error=验证码错误");
+                HttpUtils.writerError(HttpResponseUtils.baseResponse(401,"验证码错误"),response);
                 return;
             }
 

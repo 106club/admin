@@ -1,13 +1,11 @@
 package club.yuit.conroller.admin;
 
 
-import club.yuit.filter.BootPictureCodeAuthenticationFilter;
 import club.yuit.support.PictureCodeGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -21,7 +19,7 @@ import java.io.IOException;
 public class AdminMainController {
 
 
-    @GetMapping("/home")
+    @GetMapping()
     public String index(){
         return "admin/index";
     }

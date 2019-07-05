@@ -16,11 +16,11 @@
         <div class="m-login-warp">
             <form class="layui-form" th:action="'/user/auth'" method="post">
                 <div class="layui-form-item">
-                    <input type="text" name="username" required  placeholder="用户名" autocomplete="off"
+                    <input type="text" name="username" required placeholder="用户名" autocomplete="off"
                            class="layui-input">
                 </div>
                 <div class="layui-form-item">
-                    <input type="text" name="password" required  placeholder="密码"
+                    <input type="password" name="password" required placeholder="密码"
                            autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item">
@@ -43,39 +43,57 @@
                 </div>
             </form>
         </div>
-        <p th:if="${param.error}" th:text="${param.error}"></p>
         <p class="copyright">Copyright 2015-2016 by XIAODU</p>
     </div>
 </div>
 <script src="/statics/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    /*layui.use(['form', 'layedit', 'laydate'], function () {
-        var form = layui.form(),
+
+    // 解决 session 过期，登录页内嵌在iframe 中
+    if (window != top) {
+        top.location.href = location.href;
+    }
+
+    layui.use(['form', 'layedit', 'laydate'], function () {
+        var form = layui.form(), $ = layui.jquery,
             layer = layui.layer;
 
 
         //自定义验证规则
         form.verify({
-            title: function (value) {
-                if (value.length < 5) {
-                    return '标题至少得5个字符啊';
+            username: function (value) {
+                if (value.length < 4) {
+                    return '标题至少得5个字符';
                 }
             },
             password: [/(.+){6,12}$/, '密码必须6到12位'],
-            verity: [/(.+){6}$/, '验证码必须是6位'],
+            pic_code: [/(.+){4}$/, '验证码必须是4位'],
 
         });
 
 
         //监听提交
         form.on('submit(login)', function (data) {
-            layer.alert(JSON.stringify(data.field), {
+
+            $.ajax({
+                data: data,
+                type: "post",
+                url: "/user/auth",
+                success: function (data) {
+                    window.location.href = "/admin";
+                },
+                error: function (err) {
+                    layer.alert(err)
+                }
+            });
+
+            /*layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
-            })
-            return false;
+            })*/
+            //return false;
         });
 
-    });*/
+    });
 
 
     function changePictureCode() {

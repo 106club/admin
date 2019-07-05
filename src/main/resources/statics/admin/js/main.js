@@ -17,6 +17,9 @@ layui.use(['layer', 'form', 'element', 'jquery', 'dialog'], function() {
 			return;
 		}
 		var isActive = $('.main-layout-tab .layui-tab-title').find("li[lay-id=" + id + "]");
+
+
+
 		if(isActive.length > 0) {
 			//切换到选项卡
 			element.tabChange('tab', id);
