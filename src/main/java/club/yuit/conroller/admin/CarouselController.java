@@ -16,4 +16,9 @@ public class CarouselController {
     public String carouselPage(){
         return "admin/carousel";
     }
+
+    @GetMapping("/detail")
+    public String carouselDetailPage(){
+        return "admin/carousel-detail";
+    }
 }
