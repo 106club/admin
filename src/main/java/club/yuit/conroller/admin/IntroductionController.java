@@ -18,4 +18,10 @@ public class IntroductionController {
         return "admin/introduction";
     }
 
+
+    @GetMapping("/detail")
+    public String introductionDetailPage() {
+        return "admin/introduction-detail";
+    }
+
 }

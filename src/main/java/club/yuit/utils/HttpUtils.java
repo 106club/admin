@@ -20,4 +20,11 @@ public class HttpUtils {
         objectMapper.writeValue(response.getOutputStream(),bs);
     }
 
+    public static <T extends BaseResponse> void writerMsg(T bs, HttpServletResponse response) throws IOException {
+        response.setContentType("application/json,charset=utf-8");
+        response.setStatus(bs.getStatus());
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.writeValue(response.getOutputStream(),bs);
+    }
+
 }

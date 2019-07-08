@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
@@ -76,7 +76,7 @@
 					<li class="layui-nav-item">
 						<a href="javascript:;" data-url="admin-info.html" data-id='5' data-text="个人信息">超级管理员</a>
 					</li>
-					<li class="layui-nav-item"><a href="javascript:;">退出</a></li>
+					<li class="layui-nav-item"><a href="javascript:;" id="logout">退出</a></li>
 				</ul>
 			</div>
 			<!--主体内容-->
@@ -98,18 +98,46 @@
 			</div>
 		</div>
 		<!--遮罩-->
-		<div class="main-mask">
+		<div class="main-mask" >
 
 		</div>
 	</div>
-	<script type="text/javascript">
-		var scope = {
-			link: './welcome.html'
-		}
-	</script>
 	<script src="/statics/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/statics/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/statics/admin/js/main.js" type="text/javascript" charset="utf-8"></script>
+
+	<script>
+		layui.use(['jquery','element'],function () {
+			var $ = layui.jquery
+			var layer = layui.layer
+
+			$("#logout").click(function () {
+
+				$.ajax({
+					url: '/admin/logout',
+					dataType: 'html',
+					type:'post',
+					beforeSend: function(request) {
+						request.setRequestHeader("[[${_csrf.getHeaderName()}]]",'[[${_csrf.getToken()}]]')
+					},
+					success: function (item) {
+						window.location.href="/admin/login"
+					},
+					error:function (err) {
+						layer.msg(err)
+					}
+				})
+
+
+			})
+
+
+
+		})
+
+
+
+	</script>
 
 </body>
 

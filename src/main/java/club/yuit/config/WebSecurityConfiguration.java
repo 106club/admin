@@ -1,7 +1,9 @@
 package club.yuit.config;
 
 import club.yuit.filter.BootPictureCodeAuthenticationFilter;
+import club.yuit.handler.BootAccessDeniedHandler;
 import club.yuit.handler.BootAuthFailureHandler;
+import club.yuit.handler.BootLoginSuccessHandler;
 import club.yuit.support.BootUserDetailService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -9,6 +11,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
+import org.springframework.security.web.session.InvalidSessionStrategy;
 
 /**
  * @author yuit
@@ -20,13 +24,17 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private BootUserDetailService userDetailService;
     private BootPictureCodeAuthenticationFilter pictureCodeAuthenticationFilter;
     private BootAuthFailureHandler authFailureHandler;
+    private BootAccessDeniedHandler accessDeniedHandler;
+    private BootLoginSuccessHandler successHandler;
 
     public WebSecurityConfiguration(BootUserDetailService userDetailService,
                                     BootPictureCodeAuthenticationFilter pictureCodeAuthenticationFilter,
-                                    BootAuthFailureHandler authFailureHandler) {
+                                    BootAuthFailureHandler authFailureHandler, BootAccessDeniedHandler accessDeniedHandler, BootLoginSuccessHandler successHandler) {
         this.userDetailService = userDetailService;
         this.pictureCodeAuthenticationFilter = pictureCodeAuthenticationFilter;
         this.authFailureHandler = authFailureHandler;
+        this.accessDeniedHandler = accessDeniedHandler;
+        this.successHandler = successHandler;
     }
 
     @Override
@@ -46,24 +54,39 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // 匹配要做拦截处理的urls
         http.requestMatchers()
-                .antMatchers("/admin/**","/admin/login","/user/auth")
+                .antMatchers("/admin/**","/user/auth")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/admin/login","/admin/picture_code","/user/auth")
+                .antMatchers("/admin/login","/admin/picture_code","/user/auth","/admin/logout")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
 
+        // 表单登录配置
         http.formLogin()
                 .loginPage("/admin/login")
                 .loginProcessingUrl("/user/auth")
                 // 登录失败处理器
                 .failureHandler(authFailureHandler)
+                .successHandler(successHandler)
                 .and()
                 // 禁用 http basic 登录
                 .httpBasic().disable();
 
+        // session 配置
+        http.sessionManagement()
+                .maximumSessions(1); // 一个用户一个session
+
+        // 注销配置
+        http.logout()
+                .logoutUrl("/admin/logout");
+
+        // 异常处理
+        http.exceptionHandling().accessDeniedHandler(accessDeniedHandler);  // 处理 403
+
+        // 请求头
         http.headers()
                 .frameOptions()
                 .sameOrigin();

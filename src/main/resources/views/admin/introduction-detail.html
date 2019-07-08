@@ -8,8 +8,9 @@
 	<meta name="viewport"
 		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	<title>公司简介</title>
-	<link rel="stylesheet" type="text/css" href="../../static/admin/layui/css/layui.css" />
-	<link rel="stylesheet" type="text/css" href="../../static/admin/css/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/admin/layui/css/layui.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/admin/css/admin.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/editor/wangEditor.min.css" />
 </head>
 
 <body>
@@ -29,6 +30,13 @@
 							<div class="layui-input-block">
 								<textarea class="layui-textarea layui-hide" name="content" lay-verify="content"
 									id="LAY_demo_editor"></textarea>
+							</div>
+						</div>
+
+						<div class="layui-form-item layui-form-text">
+							<label class="layui-form-label">文章内容：</label>
+							<div class="layui-input-block">
+								<div  id="editor"></div>
 							</div>
 						</div>
 
@@ -53,9 +61,19 @@
 			</div>
 		</form>
 	</div>
-	<script src="../../static/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../../static/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/statics/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/statics/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/statics/editor/wangEditor.min.js" type="text/javascript" charset="utf-8"></script>
 	<script>
+
+
+		var E = window.wangEditor
+		var editor = new E('#editor')
+
+		editor.create()
+
+
+
 		layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog', 'element', 'upload', 'layedit'], function () {
 			var form = layui.form(),
 				layer = layui.layer,
