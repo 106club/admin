@@ -17,8 +17,9 @@
     <form class="layui-form" action="">
         <div class="layui-form-item">
             <div class="layui-inline tool-btn">
-                <button class="layui-btn layui-btn-small layui-btn-normal go-btn hidden-xs"
-                        data-url="/admin/carousel/detail"><i class="layui-icon">&#xe654;</i></button>
+                <a class="layui-btn layui-btn-small layui-btn-normal "
+                        href="/admin/carousel/detail"><i class="layui-icon">&#xe654;</i>
+                </a>
                 <button class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs"
                         data-url="/admin/category/listorderall.html"><i class="iconfont">&#xe656;</i></button>
             </div>
@@ -54,7 +55,7 @@
                         <a  th:href="'/admin/carousel/detail?id='+${carousel.getId()}" class="layui-btn layui-btn-mini layui-btn-normal">
                             <i class="layui-icon">&#xe642;</i>
                         </a>
-                        <button class="layui-btn layui-btn-mini layui-btn-danger del-btn"><i class="layui-icon">&#xe640;</i></button>
+                        <button class="layui-btn layui-btn-mini layui-btn-danger del-btn" th:attr="data-id=${carousel.getId()}"><i class="layui-icon">&#xe640;</i></button>
                     </div>
                 </td>
             </tr>
@@ -66,7 +67,8 @@
 <script src="/statics/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
 <script>
     layui.use(['form', 'jquery', 'layer', 'dialog'], function () {
-        var $ = layui.jquery;
+        var $ = layui.jquery,
+        dialog = layui.dialog
         //修改状态
         $('#table-list').on('click', '.table-list-status', function () {
             var That = $(this);
@@ -78,6 +80,35 @@
                 That.removeClass('layui-btn-warm').addClass('layui-btn-normal').html('显示').attr('data-status', 1);
 
             }
+        })
+
+        //列表删除
+        $('#table-list').on('click', '.del-btn', function() {
+
+            var id = $(this).attr('data-id');
+            dialog.confirm({
+                message:'您确定要进行删除吗？',
+                success:function(){
+
+                    $.ajax({
+                        url: "/admin/carousel/"+id,
+                        type:'delete',
+                        dataType:'json',
+                        beforeSend: function(request) {
+                            request.setRequestHeader("[[${_csrf.getHeaderName()}]]",'[[${_csrf.getToken()}]]')
+                        },
+                        success:function (item) {
+                            window.location.href = "/admin/carousel"
+                        },
+                        error: function () {
+                            layer.msg("错误")
+                        }
+                    })
+
+
+                }
+            })
+            return false;
         })
 
     });

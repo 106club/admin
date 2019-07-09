@@ -44,4 +44,11 @@ public class BootExceptionHandler {
     }
 
 
+    @ExceptionHandler(value = RuntimeException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public BaseResponse runTime(){
+        return baseResponse(HttpStatus.FORBIDDEN.value(),"非法操作");
+    }
+
+
 }
