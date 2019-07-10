@@ -25,12 +25,11 @@ public class AboutUsController {
     @GetMapping
     public String aboutUsPage(Model model, HttpServletRequest request){
 
-        String id = request.getParameter("id");
 
-        AboutUs abs = new AboutUs();
+        AboutUs abs=this.service.getById("about_us_123");
 
-        if (id!=null){
-            abs=this.service.getById(id);
+        if (abs==null){
+            abs = new AboutUs();
         }
         model.addAttribute("abs",abs);
 
@@ -40,9 +39,9 @@ public class AboutUsController {
 
     @PostMapping
     @ResponseBody
-    public BaseResponse modify(@ModelAttribute AboutUs abs){
+    public BaseResponse modify(@RequestBody AboutUs abs){
 
-        if (abs.getId()==null||abs.getId().equals("")){
+        if (abs.getId()==null||abs.getId().equals("null")||abs.getId().equals("")){
             abs.setId("about_us_123");
             this.service.save(abs);
         }else {
