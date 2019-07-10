@@ -59,7 +59,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**","/user/auth")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/admin/login","/admin/picture_code","/user/auth","/admin/logout")
+                .antMatchers("/admin/login","/admin/picture_code","/user/auth","/admin/logout","/admin/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();

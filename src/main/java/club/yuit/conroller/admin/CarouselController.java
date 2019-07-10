@@ -57,6 +57,7 @@ public class CarouselController {
     @DeleteMapping("/{id}")
     @ResponseBody
     public BaseResponse deleteCarousel(@PathVariable  String id){
+
         return this.carouselService.deleteById(id);
     }
 

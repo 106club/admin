@@ -1,108 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="renderer" content="webkit">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>首页管理</title>
-		<link rel="stylesheet" type="text/css" href="/statics/admin/layui/css/layui.css" />
-		<link rel="stylesheet" type="text/css" href="/statics/admin/css/admin.css" />
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>首页详情</title>
+	<link rel="stylesheet" type="text/css" href="/statics/admin/layui/css/layui.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/admin/css/admin.css" />
+</head>
 
-	<body>
-		<div class="page-content-wrap">
-			<form class="layui-form" action="">
-				<div class="layui-form-item">
-					<div class="layui-inline tool-btn">
-						<button class="layui-btn layui-btn-small layui-btn-normal go-btn hidden-xs" data-url="/admin/contactus/detail"><i class="layui-icon">&#xe654;</i></button>
+<body>
+	<div class="page-content-wrap clearfix">
+		<form class="layui-form" >
+			<div class="layui-tab">
+				<ul class="layui-tab-title">
+					<li class="layui-this">信息修改</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item"></div>
+					<div class="layui-tab-item layui-show">
+						<div class="layui-form-item">
+							<label class="layui-form-label">地址：</label>
+							<div class="layui-input-block">
+								<input type="text" name="address" th:value="${cus.getAddress()}"   required lay-verify="required"
+									autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">传真：</label>
+							<div class="layui-input-block">
+								<input type="text" name="fax" th:value="${cus.getFax()}" required lay-verify="required"
+									autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">邮件：</label>
+							<div class="layui-input-block">
+								<input type="text" name="email" th:value="${cus.getEmail()}" required lay-verify="required"
+									autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">电话：</label>
+							<div class="layui-input-block">
+								<input type="text" name="phone" th:value="${cus.getPhone()}" required lay-verify="required"
+									autocomplete="off" class="layui-input">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">微信：</label>
+							<div class="layui-input-block">
+								<input type="text" name="weiChat" th:value="${cus.getWeiChat()}" required lay-verify="required"
+									autocomplete="off" class="layui-input">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">QQ：</label>
+							<div class="layui-input-block">
+								<input type="text" name="qq" th:value="${cus.getQq()}" required lay-verify="required"
+									autocomplete="off" class="layui-input">
+							</div>
+						</div>
+
+						<input type="hidden" th:name="${_csrf.getParameterName()}" th:value="${_csrf.getToken()}"/>
+
 					</div>
-					<div class="layui-inline">
-						<input type="text" name="title" placeholder="请输入查询条件" autocomplete="off" class="layui-input">
+					<div class="layui-tab-item">
+
 					</div>
-					<button class="layui-btn layui-btn-normal" lay-submit="search">搜索</button>
 				</div>
-			</form>
-			<div class="layui-form" id="table-list">
-				<table class="layui-table" lay-even lay-skin="nob">
-					<colgroup>
-						<col width="50">
-						<col class="hidden-xs" width="50">
-						<col class="hidden-xs" width="100">
-						<col>
-						<col class="hidden-xs" width="200">
-						<col width="120">
-						<col width="150">
-					</colgroup>
-					<thead>
-						<tr>
-							<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
-							<th class="hidden-xs">ID</th>
-							<th class="hidden-xs">地址</th>
-							<th>传真</th>
-							<th>邮箱</th>
-							<th>电话</th>
-							<th>是否默认</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><input type="checkbox" name="" lay-skin="primary" data-id="1"></td>
-							<td class="hidden-xs">1</td>
-							<td>贵州省兴仁市振兴大道</td>
-							<td>xxxx@ghsw.com</td>
-							<td>88888888@qq.com</td>
-							<td>18888888888</td>
-							<td>是</td>
-							<td>
-								<div class="layui-inline">
-									<button class="layui-btn layui-btn-mini layui-btn-normal  go-btn" data-id="1" data-url="danye-detail.html"><i class="layui-icon">&#xe642;</i></button>
-									<button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="del.html"><i class="layui-icon">&#xe640;</i></button>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="page-wrap">
-						<ul class="pagination">
-							<li class="disabled"><span>«</span></li>
-							<li class="active"><span>1</span></li>
-							<li>
-								<a href="#">2</a>
-							</li>
-							<li>
-								<a href="#">3</a>
-							</li>
-							<li>
-								<a href="#">»</a>
-							</li>
-						</ul>
-					</div>
 			</div>
-		</div>
-		<script src="/statics/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/statics/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script>
-			layui.use(['form', 'jquery', 'layer', 'dialog'], function() {
-				var $ = layui.jquery;
+			<div class="layui-form-item" style="padding-left: 10px;">
+				<div class="layui-input-block">
+					<button class="layui-btn layui-btn-normal" lay-submit lay-filter="formDemo">提交</button>
+					<input type="button" class="layui-btn layui-btn-primary" value="重置"/>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="/statics/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/statics/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog', 'element', 'upload', 'layedit'], function () {
+			var form = layui.form(),
+				layer = layui.layer,
+				$ = layui.jquery
 
-				//修改状态
-				$('#table-list').on('click', '.table-list-status', function() {
-					var That = $(this);
-					var status = That.attr('data-status');
-					var id = That.parent().attr('data-id');
-					if(status == 1) {
-						That.removeClass('layui-btn-normal').addClass('layui-btn-warm').html('隐藏').attr('data-status', 2);
-					} else if(status == 2) {
-						That.removeClass('layui-btn-warm').addClass('layui-btn-normal').html('显示').attr('data-status', 1);
+			form.on("submit(formDemo)",function (data) {
 
+				var index=layer.msg('提交中...', {
+					icon: 16
+					,shade: 0.01,
+					time: 1000*36000,
+					anim:1
+				});
+
+				$.ajax({
+					url:'/admin/contactus',
+					type:'post',
+					data: $('form').serialize(),
+					dataType:'json',
+					success:function (item) {
+						
+						layer.close(index)
+						layer.msg("成功！",{
+							icon: 1
+						})
+
+					},
+					error:function (err) {
+						layer.close(index);
+
+						if (err.status==403){
+							layer.msg("登录状态过期，请刷新网页后登录",{
+								icon: 5
+							})
+						}else {
+							if (err.responseJSON) {
+								layer.msg(err.responseJSON.msg,{
+									icon: 5
+								})
+							}
+						}
 					}
 				})
 
-			});
-		</script>
-	</body>
+				return false;
+			})
+			
+			$("input[type='button']").click(function () {
+				$("input[name='address']").val('')
+				$("input[name='fax']").val('')
+				$("input[name='phone']").val('')
+				$("input[name='email']").val('')
+				$("input[name='weiChat']").val('')
+				$("input[name='qq']").val('')
+			})
+
+		});
+	</script>
+</body>
 
 </html>
