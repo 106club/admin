@@ -46,7 +46,7 @@
 						<div class="layui-form-item layui-form-text">
 							<label class="layui-form-label">简介：</label>
 							<div class="layui-input-block">
-								<textarea placeholder="请输入内容" th:value="${abs.getDescription()}" name="description" class="layui-textarea"></textarea>
+								<textarea placeholder="请输入内容" th:text="${abs.getDescription()}" name="description" class="layui-textarea"></textarea>
 							</div>
 						</div>
 
@@ -83,7 +83,9 @@
 			var editor = new E('#editor');
 			editor.customConfig.uploadImgShowBase64 = true;
 			editor.create();
+			/*<![CDATA[*/
 			editor.txt.html('[(${abs.getContent()})]');
+			/*]]>*/
 
 			var imageData = "";
 

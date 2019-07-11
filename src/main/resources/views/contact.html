@@ -1,218 +1,224 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>贵州高浩律师事务所</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Realist Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-	<script type="application/x-javascript">
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
+    <title>贵州高浩律师事务所</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Realist Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
-	</script>
-	<link href="/statics/front/css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="/statics/front/js/jquery-1.11.1.min.js"></script>
-	<!-- Custom Theme files -->
-	<link href="/statics/front/css/style.css" rel='stylesheet' type='text/css' />
-	<link href='#css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
-	<link href='#css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
-	<link rel="shortcut icon" href=" /statics/favicon.ico" />
-	<!-- Menu -->
-	<!----font-Awesome----->
-	<link rel="stylesheet" href="/statics/front/fonts/css/font-awesome.min.css">
-	<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
-	<!----font-Awesome----->
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="/statics/front/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/statics/front/js/jquery-1.11.1.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="/statics/front/css/style.css" rel='stylesheet' type='text/css'/>
+    <link href='#css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
+    <link href='#css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
+    <link rel="shortcut icon" href=" /statics/favicon.ico"/>
+    <!-- Menu -->
+    <!----font-Awesome----->
+    <link rel="stylesheet" href="/statics/front/fonts/css/font-awesome.min.css">
+    <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+    <!----font-Awesome----->
 </head>
 
 <body>
-	<div class="header">
-		<div class="col-xs-4">
-			<div class="logo">
-				<a href="index.html"><img src="/statics/front/images/logo.png" alt="" /></a>
-			</div>
-		</div>
-		<div class="col-xs-8 header_right">
-			<span class="menu"></span>
-			<div class="top-menu">
-				<ul>
-					<li><a href="/"><i class="fa fa-">首页</i>Home</a></li>
-					<li><a href="/services"><i class="fa fa-">服务领域</i>Practice Areas</a></li>
-					<li><a href="/team"><i class="fa fa-">专业团队</i>Professional team</a></li>
-					<li><a href="/about"><i class="fa fa-">关于我们</i> About us</a></li>
-					<li><a class="active scroll" href="/contact"><i class="fa fa-">联系我们</i>Contact us</a></li>
-				</ul>
-			</div>
-			<!-- script for menu -->
-			<script>
-				$("span.menu").click(function () {
-					$(".top-menu").slideToggle("slow", function () {
-						// Animation complete.
-					});
-				});
-			</script>
-			<!-- script for menu -->
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-	<div class="about_top">
-		<div class="container">
-			<div class="about" style="padding-top:1em;">
-				<h3>联系我们</h3>
-				<div class="map">
-					<div id="container" style="width:100%;;min-height:600px;"></div>
-				</div>
-				<div class="contact zxx-contact">
-					<div class="col-md-6 contact_left">
-						
-						<p>电话：0859-5555555 | 18108597596</p>
-						<p>地址：贵州省兴仁市东湖街道办事处文笔路</p>
-					</div>
-					<div class="col-md-6 contact_left">
-							<p>传真：0859-5555555</p>
-							<p>电子邮件：1217464292@qq.com</p>
-						</div>
+<div class="header">
+    <div class="col-xs-4">
+        <div class="logo">
+            <a href="index.html"><img src="/statics/front/images/logo.png" alt=""/></a>
+        </div>
+    </div>
+    <div class="col-xs-8 header_right">
+        <span class="menu"></span>
+        <div class="top-menu">
+            <ul>
+                <li><a href="/"><i class="fa fa-">首页</i>Home</a></li>
+                <li><a href="/services"><i class="fa fa-">服务领域</i>Practice Areas</a></li>
+                <li><a href="/team"><i class="fa fa-">专业团队</i>Professional team</a></li>
+                <li><a href="/about"><i class="fa fa-">关于我们</i> About us</a></li>
+                <li><a class="active scroll" href="/contact"><i class="fa fa-">联系我们</i>Contact us</a></li>
+            </ul>
+        </div>
+        <!-- script for menu -->
+        <script>
+            $("span.menu").click(function () {
+                $(".top-menu").slideToggle("slow", function () {
+                    // Animation complete.
+                });
+            });
+        </script>
+        <!-- script for menu -->
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="about_top">
+    <div class="container">
+        <div class="about" style="padding-top:1em;">
+            <h3>联系我们</h3>
+            <div class="map">
+                <div id="container" style="width:100%;;min-height:600px;"></div>
+            </div>
+            <div class="contact zxx-contact">
+                <div class="col-md-6 contact_left">
 
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-			<div class="copy" style="margin-top:20px;">
-				<p>Copyright &copy; 2019-2020 贵州高浩律师事务所</p>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		//创建和初始化地图函数：
-		function initMap() {
-			createMap(); //创建地图
-			setMapEvent(); //设置地图事件
-			addMapControl(); //向地图添加控件
-			addMarker(); //向地图中添加marker
-		}
+                    <p> 电话：<span th:text="${us.phone}"></span></p>
+                    <p>地址：<span th:text="${us.address}"></span></p>
+                    <p>传真：<span th:text="${us.fax}"></span></p>
+                </div>
+                <div class="col-md-6 contact_left">
+                    <p>邮箱：<span th:text="${us.email}"></span></p>
+                    <p>微信：<span th:text="${us.weiChat}"></span></p>
+                    <p>Q Q：<span th:text="${us.qq}"></span></p>
+                </div>
 
-		//创建地图函数：
-		function createMap() {
-			var map = new BMap.Map("container"); //在百度地图容器中创建一个地图
-			var point = new BMap.Point(105.214051,25.440609); //定义一个中心点坐标
-			map.centerAndZoom(point, 16); //设定地图的中心点和坐标并将地图显示在地图容器中
-			window.map = map; //将map变量存储在全局
-		}
 
-		//地图事件设置函数：
-		function setMapEvent() {
-			map.enableDragging(); //启用地图拖拽事件，默认启用(可不写)
-			map.enableScrollWheelZoom(); //启用地图滚轮放大缩小
-			map.enableDoubleClickZoom(); //启用鼠标双击放大，默认启用(可不写)
-			map.enableKeyboard(); //启用键盘上下左右键移动地图
-		}
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="copy" style="margin-top:20px;">
+            <p>Copyright &copy; 2019-2020 贵州高浩律师事务所</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap() {
+        createMap(); //创建地图
+        setMapEvent(); //设置地图事件
+        addMapControl(); //向地图添加控件
+        addMarker(); //向地图中添加marker
+    }
 
-		//地图控件添加函数：
-		function addMapControl() {
-			//向地图中添加缩放控件
-			var ctrl_nav = new BMap.NavigationControl({
-				anchor: BMAP_ANCHOR_TOP_LEFT,
-				type: BMAP_NAVIGATION_CONTROL_LARGE
-			});
-			map.addControl(ctrl_nav);
-			//向地图中添加缩略图控件
-			var ctrl_ove = new BMap.OverviewMapControl({
-				anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
-				isOpen: 1
-			});
-			map.addControl(ctrl_ove);
-			//向地图中添加比例尺控件
-			var ctrl_sca = new BMap.ScaleControl({
-				anchor: BMAP_ANCHOR_BOTTOM_LEFT
-			});
-			map.addControl(ctrl_sca);
-		}
+    //创建地图函数：
+    function createMap() {
+        var map = new BMap.Map("container"); //在百度地图容器中创建一个地图
+        var point = new BMap.Point(105.214051, 25.440609); //定义一个中心点坐标
+        map.centerAndZoom(point, 16); //设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map; //将map变量存储在全局
+    }
 
-		//标注点数组
-		var markerArr = [{
-			title: "&nbsp;贵州高浩律师事务所&nbsp;",
-			content: "单位地址：贵州省兴仁市东湖街道办事处文笔路以环湖交叉口东100米<br/>电话：0851-888888&nbsp;0851-454545&nbsp;<br/>传真：0851-888888&nbsp;<br/>电子邮件：1217464292@qq.com",
-			point: "105.214051|25.440609",
-			isOpen: 0,
-			icon: {
-				w: 23,
-				h: 25,
-				l: 0,
-				t: 21,
-				x: 9,
-				lb: 12
-			}
-		}];
-		//创建marker
-		function addMarker() {
-			for (var i = 0; i < markerArr.length; i++) {
-				var json = markerArr[i];
-				var p0 = json.point.split("|")[0];
-				var p1 = json.point.split("|")[1];
-				var point = new BMap.Point(p0, p1);
-				var iconImg = createIcon(json.icon);
-				var marker = new BMap.Marker(point, {
-					icon: iconImg
-				});
-				var iw = createInfoWindow(i);
-				var label = new BMap.Label(json.title, {
-					"offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
-				});
-				marker.setLabel(label);
-				map.addOverlay(marker);
-				label.setStyle({
-					borderColor: "#808080",
-					color: "#333",
-					cursor: "pointer"
-				});
+    //地图事件设置函数：
+    function setMapEvent() {
+        map.enableDragging(); //启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom(); //启用地图滚轮放大缩小
+        map.enableDoubleClickZoom(); //启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard(); //启用键盘上下左右键移动地图
+    }
 
-				(function () {
-					var index = i;
-					var _iw = createInfoWindow(i);
-					var _marker = marker;
-					_marker.addEventListener("click", function () {
-						this.openInfoWindow(_iw);
-					});
-					_iw.addEventListener("open", function () {
-						_marker.getLabel().hide();
-					})
-					_iw.addEventListener("close", function () {
-						_marker.getLabel().show();
-					})
-					label.addEventListener("click", function () {
-						_marker.openInfoWindow(_iw);
-					})
-					if (!!json.isOpen) {
-						label.hide();
-						_marker.openInfoWindow(_iw);
-					}
-				})()
-			}
-		}
-		//创建InfoWindow
-		function createInfoWindow(i) {
-			var json = markerArr[i];
-			var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title +
-				"</b><div class='iw_poi_content'>" + json.content + "</div>");
-			return iw;
-		}
-		//创建一个Icon
-		function createIcon(json) {
-			var icon = new BMap.Icon("http://map.baidu.com/image/us_cursor.gif", new BMap.Size(json.w, json.h), {
-				imageOffset: new BMap.Size(-json.l, -json.t),
-				infoWindowOffset: new BMap.Size(json.lb + 5, 1),
-				offset: new BMap.Size(json.x, json.h)
-			})
-			return icon;
-		}
+    //地图控件添加函数：
+    function addMapControl() {
+        //向地图中添加缩放控件
+        var ctrl_nav = new BMap.NavigationControl({
+            anchor: BMAP_ANCHOR_TOP_LEFT,
+            type: BMAP_NAVIGATION_CONTROL_LARGE
+        });
+        map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+        var ctrl_ove = new BMap.OverviewMapControl({
+            anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+            isOpen: 1
+        });
+        map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+        var ctrl_sca = new BMap.ScaleControl({
+            anchor: BMAP_ANCHOR_BOTTOM_LEFT
+        });
+        map.addControl(ctrl_sca);
+    }
 
-		initMap(); //创建和初始化地图
-	</script>
+    //标注点数组
+    var markerArr = [{
+        title: "&nbsp;贵州高浩律师事务所&nbsp;",
+        content: "单位地址：贵州省兴仁市东湖街道办事处文笔路以环湖交叉口东100米<br/>电话：0851-888888&nbsp;0851-454545&nbsp;<br/>传真：0851-888888&nbsp;<br/>电子邮件：1217464292@qq.com",
+        point: "105.214051|25.440609",
+        isOpen: 0,
+        icon: {
+            w: 23,
+            h: 25,
+            l: 0,
+            t: 21,
+            x: 9,
+            lb: 12
+        }
+    }];
+
+    //创建marker
+    function addMarker() {
+        for (var i = 0; i < markerArr.length; i++) {
+            var json = markerArr[i];
+            var p0 = json.point.split("|")[0];
+            var p1 = json.point.split("|")[1];
+            var point = new BMap.Point(p0, p1);
+            var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point, {
+                icon: iconImg
+            });
+            var iw = createInfoWindow(i);
+            var label = new BMap.Label(json.title, {
+                "offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
+            });
+            marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                borderColor: "#808080",
+                color: "#333",
+                cursor: "pointer"
+            });
+
+            (function () {
+                var index = i;
+                var _iw = createInfoWindow(i);
+                var _marker = marker;
+                _marker.addEventListener("click", function () {
+                    this.openInfoWindow(_iw);
+                });
+                _iw.addEventListener("open", function () {
+                    _marker.getLabel().hide();
+                })
+                _iw.addEventListener("close", function () {
+                    _marker.getLabel().show();
+                })
+                label.addEventListener("click", function () {
+                    _marker.openInfoWindow(_iw);
+                })
+                if (!!json.isOpen) {
+                    label.hide();
+                    _marker.openInfoWindow(_iw);
+                }
+            })()
+        }
+    }
+
+    //创建InfoWindow
+    function createInfoWindow(i) {
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title +
+            "</b><div class='iw_poi_content'>" + json.content + "</div>");
+        return iw;
+    }
+
+    //创建一个Icon
+    function createIcon(json) {
+        var icon = new BMap.Icon("http://map.baidu.com/image/us_cursor.gif", new BMap.Size(json.w, json.h), {
+            imageOffset: new BMap.Size(-json.l, -json.t),
+            infoWindowOffset: new BMap.Size(json.lb + 5, 1),
+            offset: new BMap.Size(json.x, json.h)
+        })
+        return icon;
+    }
+
+    initMap(); //创建和初始化地图
+</script>
 </body>
 
 </html>

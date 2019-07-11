@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author yuit
@@ -57,7 +58,6 @@ public class CarouselController {
     @DeleteMapping("/{id}")
     @ResponseBody
     public BaseResponse deleteCarousel(@PathVariable  String id){
-
         return this.carouselService.deleteById(id);
     }
 
