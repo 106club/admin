@@ -5,8 +5,11 @@ import club.yuit.mapper.CarouselMapper;
 import club.yuit.response.BaseResponse;
 import club.yuit.response.HttpResponseUtils;
 import club.yuit.service.CarouselService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author yuit
@@ -31,5 +34,14 @@ public class CarouselServiceImpl extends ServiceImpl<CarouselMapper, Carousel> i
     public BaseResponse deleteById(String id) {
         this.removeById(id);
         return HttpResponseUtils.successResponse();
+    }
+
+    @Override
+    public List<Carousel> listCarousel() {
+
+        QueryWrapper<Carousel> wrapper = new QueryWrapper<>();
+
+        wrapper.select("id","title","sub_title");
+        return this.list(wrapper);
     }
 }

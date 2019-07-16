@@ -27,7 +27,7 @@ public class CarouselController {
     @GetMapping
     public String carouselPage(Model model){
 
-        model.addAttribute("carousels",this.carouselService.list());
+        model.addAttribute("carousels",this.carouselService.listCarousel());
 
         return "admin/carousel";
     }
