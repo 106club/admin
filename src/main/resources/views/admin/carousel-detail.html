@@ -78,7 +78,7 @@
 								<a href="javascript:;" class="a-upload">
 									<input type="file" name="file" class="layui-upload-file" >上传图片
 								</a> <br>
-								<img th:src="${image_code}" id="preview" style="width: 100%;height: 200px">
+								<img th:src="${image_code}" id="preview" style="height: 200px">
 							</div>
 						</div>
 
@@ -130,10 +130,16 @@
 						request.setRequestHeader("[[${_csrf.getHeaderName()}]]",'[[${_csrf.getToken()}]]')
 					},
 					success:function (item) {
-						layer.msg("成功!")
+						layer.confirm("成功！返回列表或继续", {btn: ['继续', '返回']},
+								function () {
+									layer.closeAll()
+								},
+								function () {
+									window.location.href="/admin/carousel"
+								})
 					},
 					error: function (err) {
-						layer.msg("失败")
+						layer.msg("失败",{icon:2})
 					}
 				})
 				return false

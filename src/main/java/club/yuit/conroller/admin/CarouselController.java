@@ -36,11 +36,16 @@ public class CarouselController {
     public String carouselDetailPage(Model model, HttpServletRequest request){
 
         String id=request.getParameter("id");
-        Carousel carousel = new Carousel();
+        Carousel carousel = null;
 
         if (id!=null){
             carousel=this.carouselService.getById(id);
         }
+
+        if (carousel==null){
+            carousel =new Carousel();
+        }
+
 
         model.addAttribute("title",carousel.getTitle());
         model.addAttribute("sub_title",carousel.getSubTitle());

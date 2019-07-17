@@ -41,6 +41,8 @@ public class AboutUsController {
     @ResponseBody
     public BaseResponse modify(@RequestBody AboutUs abs){
 
+        abs.setContent(abs.getContent().replace("'","\\'"));
+
         if (abs.getId()==null||abs.getId().equals("null")||abs.getId().equals("")){
             abs.setId("about_us_123");
             this.service.save(abs);

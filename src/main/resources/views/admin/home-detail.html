@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,8 @@
         <div class="layui-tab">
             <ul class="layui-tab-title">
                 <li><a href="/admin/home">首页列表</a></li>
-                <li class="layui-this">添加首页信息</li>
+                <li class="layui-this" th:if="${param.id}==null">添加信息</li>
+                <li class="layui-this" th:if="${param.id}!=null">修改信息</li>
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item"></div>
@@ -27,31 +28,27 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">标题：</label>
                         <div class="layui-input-block">
-                            <input type="text" name="name" required lay-verify="required" placeholder="请输入文章标题"
+                            <input type="text" name="title" th:value="${cs.title}" required lay-verify="required"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">排序：</label>
+                        <div class="layui-input-block">
+                            <input type="number" name="sort" th:value="${cs.sort}" required lay-verify="required"
                                    autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">副标题：</label>
                         <div class="layui-input-block">
-                            <input type="text" name="name" required lay-verify="required" placeholder="请输入文章副标题"
+                            <input type="text" name="subTitle" th:value="${cs.subTitle}" required lay-verify="required"
                                    autocomplete="off" class="layui-input">
                         </div>
                     </div>
-                    <!--<div class="layui-form-item">
-                        <label class="layui-form-label">选择类型：</label>
-                        <div class="layui-input-block">
-                            <select name="category" lay-verify="required">
-                                <option value="">请选择类型</option>
-                                <option value="1">案例</option>
-                                <option value="2">文章</option>
-                                <option value="2">财产</option>
-                            </select>
-                        </div>
-                    </div>-->
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">文章内容：</label>
+                        <label class="layui-form-label">内容：</label>
                         <div class="layui-input-block">
                             <div style="z-index: -100000" id="editor"></div>
                         </div>
@@ -66,7 +63,6 @@
             <div class="layui-input-block">
                 <button class="layui-btn layui-btn-normal" type="button" id="preview">预览</button>
                 <button class="layui-btn layui-btn-normal" type="submit" lay-submit lay-filter="formDemo">提交</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
     </form>
@@ -74,8 +70,7 @@
 <script src="/statics/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="/statics/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
 <script src="/statics/editor/wangEditor.min.js" type="text/javascript" charset="utf-8"></script>
-<script>
-
+<script th:inline="javascript">
 
 
     layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog', 'element', 'upload', 'layedit'], function () {
@@ -88,29 +83,61 @@
             element = layui.element(),
             dialog = layui.dialog;
 
+
         var E = window.wangEditor
         var editor = new E('#editor')
         editor.customConfig.uploadImgShowBase64 = true
 
         editor.create()
 
+        /*<![CDATA[*/
+        editor.txt.html('[(${cs.getContent()})]');
+        /*]]>*/
+
 
         //全选
-        form.on('checkbox(allChoose)', function (data) {
-            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
-            child.each(function (index, item) {
-                item.checked = data.elem.checked;
+        form.on('submit(formDemo)', function (data) {
+
+            var subData = {
+                id: [[${cs.getId()}]],
+                title: data.field.title,
+                subTitle: data.field.subTitle,
+                sort: data.field.sort,
+                content: editor.txt.html()
+            }
+
+            $.ajax({
+                url: '/admin/home',
+                type:"post",
+                contentType: "application/json",
+                dataType:'json',
+                data: JSON.stringify(subData),
+                beforeSend: function(request) {
+                    request.setRequestHeader([[${_csrf.getHeaderName()}]],[[${_csrf.getToken()}]])
+                },
+                success:function (item) {
+                    layer.confirm("成功！返回列表或继续", {btn: ['继续', '返回']},
+                        function () {
+                            layer.closeAll()
+                        },
+                        function () {
+                            window.location.href="/admin/home"
+                        })
+                },
+                error: function (err) {
+                    layer.msg("失败",{icon:2})
+                }
             });
-            form.render('checkbox');
+
+            return false;
         });
-        form.render();
 
         $("#preview").click(function () {
             parent.layer.open({
                 type: 1,
                 title: '预览',
                 content: editor.txt.html(),
-                area:['100%','100%']
+                area: ['100%', '100%']
             })
         })
 

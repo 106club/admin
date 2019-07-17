@@ -31,7 +31,7 @@ public class BootServicesServiceImpl extends ServiceImpl<ServiceMapper, BootServ
     @Override
     public List<BootService> findServicesBySort() {
         QueryWrapper<BootService> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("sort");
+        wrapper.orderByAsc("sort");
         wrapper.select("id","title","sort");
         return this.list(wrapper);
     }
