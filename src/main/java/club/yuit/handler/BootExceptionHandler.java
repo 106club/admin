@@ -46,7 +46,8 @@ public class BootExceptionHandler {
 
     @ExceptionHandler(value = RuntimeException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
-    public BaseResponse runTime(){
+    public BaseResponse runTime(RuntimeException e){
+        e.printStackTrace();
         return baseResponse(HttpStatus.FORBIDDEN.value(),"非法操作");
     }
 

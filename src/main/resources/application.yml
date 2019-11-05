@@ -22,7 +22,10 @@ spring:
     suffix: .html
   mvc:
     throw-exception-if-no-handler-found: true # 没有找到处理器，将异常抛出
-
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
 
 mybatis-plus:
   mapper-locations: classpath:mapper/*Mapper.xml # mapper 文件路径

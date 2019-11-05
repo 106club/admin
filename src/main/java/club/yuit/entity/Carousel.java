@@ -19,7 +19,7 @@ public class Carousel {
     private String title;
     @TableField("sub_title")
     private String subTitle;
-    @TableField("image_code")
-    private String imageCode;
+    @TableField("image_url")
+    private String imageUrl;
 
 }

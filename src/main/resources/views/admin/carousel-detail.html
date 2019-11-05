@@ -48,7 +48,7 @@
 
 <body>
 	<div class="page-content-wrap clearfix">
-		<form class="layui-form">
+		<form class="layui-form" enctype="multipart/form-data">
 			<div class="layui-tab">
 				<ul class="layui-tab-title">
 					<li><a href="/admin/carousel">图片轮播</a></li>
@@ -78,7 +78,7 @@
 								<a href="javascript:;" class="a-upload">
 									<input type="file" name="file" class="layui-upload-file" >上传图片
 								</a> <br>
-								<img th:src="${image_code}" id="preview" style="height: 200px">
+								<img th:src="${image_url}" id="preview" style="height: 200px">
 							</div>
 						</div>
 
@@ -123,8 +123,7 @@
 				$.ajax({
 					url:'/admin/carousel',
 					type: 'post',
-					dataType: 'json',
-					data: JSON.stringify(body),
+					data: $('form').serialize(),
 					contentType: 'application/json',
 					beforeSend: function(request) {
 						request.setRequestHeader("[[${_csrf.getHeaderName()}]]",'[[${_csrf.getToken()}]]')
