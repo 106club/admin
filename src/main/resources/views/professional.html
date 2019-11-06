@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>贵州高浩律师事务所</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     } </script>
     <link href="/statics/front/css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/statics/front/js/jquery-1.11.1.min.js"></script>
+    <script src="/statics/front/js/jquery-3-4-1.min.js"></script>
     <!-- Custom Theme files -->
     <link href="/statics/front/css/style.css" rel='stylesheet' type='text/css'/>
     <link href='#css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
@@ -27,35 +28,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!----font-Awesome----->
 </head>
 <body>
-<div class="header">
-    <div class="col-xs-4">
-        <div class="logo">
-            <a href="index.html"><img src="/statics/front/images/logo.png" alt=""/></a>
-        </div>
-    </div>
-    <div class="col-xs-8 header_right">
-        <span class="menu"></span>
-        <div class="top-menu">
-            <ul>
-                <li><a href="/"><i class="fa fa-">首页</i>Home</a></li>
-                <li><a href="/services"><i class="fa fa-">服务领域</i>Practice Areas</a></li>
-                <li><a class="active scroll" href="/team"><i class="fa fa-">专业团队</i>Professional team</a></li>
-                <li><a href="/about"><i class="fa fa-">关于我们</i> About us</a></li>
-                <li><a href="/contact"><i class="fa fa-">联系我们</i>Contact us</a></li>
-                <div class="clearfix"></div>
-            </ul>
-        </div>
-        <!-- script for menu -->
-        <script>
-            $("span.menu").click(function () {
-                $(".top-menu").slideToggle("slow", function () {
-                    // Animation complete.
-                });
-            });
-        </script>
-        <!-- script for menu -->
-    </div>
-    <div class="clearfix"></div>
+<div  th:replace="~{commons/nav::nav}">
+
 </div>
 <div class="about_top">
     <div class="container">

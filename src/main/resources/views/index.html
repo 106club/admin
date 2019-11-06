@@ -1,133 +1,108 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-	<title>贵州高浩律师事务所</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Realist Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-	<script type="application/x-javascript">
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
+<head th:replace="~{commons/header::header(~{::title},~{::link},~{},~{::script})}">
+    <title>贵州高浩律师事务所</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Realist Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
-	</script>
-	<link href="/statics/front/css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="/statics/front/js/jquery-1.11.1.min.js"></script>
-	<!-- Custom Theme files -->
-	<link href="/statics/front/css/style.css" rel='stylesheet' type='text/css' />
-	<link href='#css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
-	<link href='#css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
-	<link rel="shortcut icon" href=" /statics/favicon.ico" />
-	<!-- Menu -->
-	<script src="/statics/front/js/responsiveslides.min.js"></script>
-	<script>
-		$(function () {
-			$("#slider").responsiveSlides({
-				auto: true,
-				nav: true,
-				speed: 500,
-				namespace: "callbacks",
-				pager: true,
-			});
-		});
-	</script>
-	<!----font-Awesome----->
-	<link rel="stylesheet" href="/statics/front/fonts/css/font-awesome.min.css">
-	<!----font-Awesome----->
-	<script src="/statics/front/js/easyResponsiveTabs.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('#horizontalTab').easyResponsiveTabs({
-				type: 'default', //Types: default, vertical, accordion           
-				width: 'auto', //auto or any width like 600px
-				fit: true // 100% fit in a container
-			});
-		});
-	</script>
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/statics/front/js/jquery-3-4-1.min.js" type="application/javascript"></script>
+	<link href="/statics/front/css/index.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href=" /statics/favicon.ico"/>
+    <link rel="stylesheet" href="/statics/front/fonts/css/font-awesome.min.css">
+    <!----font-Awesome----->
+    <script type="javascript" src="/statics/bootstrap/js/bootstrap.js"></script>
+    <script>
+        $(function () {
+            $('.carousel').carousel()
+        })
+    </script>
 </head>
 
 <body>
-	<div class="header">
-		<div class="col-xs-4">
-			<div class="logo">
-				<a href="index.html"><img src="/statics/front/images/logo.png" alt="" /></a>
-			</div>
-		</div>
-		<div class="col-xs-8 header_right">
-			<span class="menu"></span>
-			<div class="top-menu">
-				<ul>
-					<li><a class="active scroll" href="/"><i class="fa fa-">首页</i>Home</a></li>
-					<li><a href="/services"><i class="fa fa-">服务领域</i>Practice Areas</a></li>
-					<li><a href="/team"><i class="fa fa-">专业团队</i>Professional team</a></li>
-					<li><a href="/about"><i class="fa fa-">关于我们</i> About us</a></li>
-					<li><a href="/contact"><i class="fa fa-">联系我们</i>Contact us</a></li>
-					<div class="clearfix"></div>
-				</ul>
-			</div>
-			<!-- script for menu -->
-			<script>
-				$("span.menu").click(function () {
-					$(".top-menu").slideToggle("slow", function () {
-						// Animation complete.
-					});
-				});
-			</script>
-			<!-- script for menu -->
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-	<div class="slider">
-		<div class="callbacks_container">
-			<ul class="rslides" id="slider">
-				<li><img src="/statics/front/images/banner.jpg" class="img-responsive" alt="" />
-					<div class="banner_desc">
-						<div class="container">
-							<h1>贵州高浩律师事务所</h1>
-							<h2>一家致力于提供高效、优质的法律服务的律师事务所</h2>
-						</div>
-					</div>
-				</li>
-				<li><img src="/statics/front/images/banner1.jpg" class="img-responsive" alt="" />
-					<div class="banner_desc">
-						<div class="container">
-							<h1>贵州高浩律师事务所</h1>
-							<h2>我们向您提供专业、优质的法律服务</h2>
-						</div>
+<div  th:replace="~{commons/nav::nav}"></div>
 
-					</div>
-				</li>
-				<li><img src="/statics/front/images/banner2.jpg" class="img-responsive" alt="" />
-					<div class="banner_desc">
-						<div class="container">
-							<h1>贵州高浩律师事务所</h1>
-							<h2>每一个公民都应该自觉遵守国家的法律</h2>
-						</div>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
 
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="about_grid1">
-		<div class="container">
-			<div class="col-xs-12 zxx-content">
-				<p>贵州高浩律师事务所2015年3月经贵州省司法厅批准设立并执业的律师事务所，本律师事务所始终以“勤勉敬业、优质高效、诚实信用，最大限度地维护和实现客户的合法权益”为执业宗旨，孜孜秉承“高屋建瓴”、“经纬天地”的执业理念。在贵州高浩律师事务所参与的法律事务中，我们的律师都会深入了解客户的情况与要求，感客户之所感，想客户之所需，真正做到与客户风雨同舟，为客户排忧解难，帮客户把握诉求。基于真诚的沟通、扎实的专业技能和负责任的态度,我们能够保证为客户提供最为合意、准确与高效的法律服务。
-				</p>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="clearfix"> </div>
-			<div class="copy" style="margin-top:20px;">
-				<p>Copyright &copy; 2019-2020 贵州高浩律师事务所</p>
-			</div>
-		</div>
-	</div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="/statics/front/images/banner.jpg"  alt="...">
+            <div class="carousel-caption">
+                <h1>贵州高浩律师事务所</h1>
+                <h2>一家致力于提供高效、优质的法律服务的律师事务所</h2>
+            </div>
+        </div>
+        <div class="item">
+            <img src="/statics/front/images/banner1.jpg" alt="...">
+            <div class="carousel-caption">
+                <h1>贵州高浩律师事务所</h1>
+                <h2>我们向您提供专业、优质的法律服务</h2>
+            </div>
+        </div>
+        <div class="item">
+            <img src="/statics/front/images/banner2.jpg" alt="...">
+            <div class="carousel-caption">
+                <h1>贵州高浩律师事务所</h1>
+                <h2>每一个公民都应该自觉遵守国家的法律</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="about_grid1">
+    <div class="about_grid_bg">
+        <div class="container">
+            <div class="about_grid_title">
+                <i class="fa fa-smile"></i>
+                高效，优质的服务
+            </div>
+            <div class="col-xs-12 zxx-content">
+                <p>贵州高浩律师事务所2015年3月经贵州省司法厅批准设立并执业的律师事务所，本律师事务所始终以“勤勉敬业、优质高效、
+                    诚实信用，最大限度地维护和实现客户的合法权益”为执业宗旨，孜孜秉承“高屋建瓴”、“经纬天地”的执业理念。
+                    在贵州高浩律师事务所参与的法律事务中，我们的律师都会深入了解客户的情况与要求，感客户之所感，想客户之所需，
+                    真正做到与客户风雨同舟，为客户排忧解难，帮客户把握诉求。基于真诚的沟通、扎实的专业技能和负责任的态度,
+                    我们能够保证为客户提供最为合意、准确与高效的法律服务。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+
+</div>
+
+<div th:replace="~{commons/footer}"></div>
 </body>
 
 </html>

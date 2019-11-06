@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header(title,links,style,script)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="贵州高浩律师事务所"/>
+    <title th:replace="${title}">title</title>
+    <link rel="stylesheet" th:href="@{../../statics/front/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{../../statics/front/fonts/css/font-awesome.min.css}">
+    <link th:href="@{../../statics/front/css/style.css}" rel='stylesheet' type='text/css'/>
+    <link th:href="@{../../statics/front/css/nav.css}" rel="stylesheet"/>
+    <link href='#css?family=Grand+Hotel:400}' rel='stylesheet' type='text/css'>
+    <link href='#css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
+    <th:block th:replace="${links}"/>
+    <th:block th:replace="${style}"/>
+    <th:block th:replace="${script}"/>
+</head>

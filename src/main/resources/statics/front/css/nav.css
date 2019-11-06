@@ -1,0 +1,112 @@
+.header{
+    position:relative;
+}
+.logo {
+    position: absolute;
+    z-index: 5555;
+    text-align: center;
+    right: 0;
+    width:70%;
+}
+.logo img{
+    max-height: 74px;
+}
+.top-menu{
+    margin-left: 16%;
+
+}
+.top-menu ul{
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+.top-menu ul li{
+    display:inline-block;
+    float:left;
+}
+.top-menu ul li a{
+    text-decoration: none;
+    color:#555;
+    text-transform: uppercase;
+    padding:18px 20px;
+    float: left;
+    font-size: 0.85em;
+    font-weight: 400;
+}
+.top-menu ul li i{
+    color:#000;
+    text-align: center;
+    display: block;
+    font-size: 15px;
+    line-height: 1.5em;
+}
+.top-menu ul li:hover i{
+    /*
+      transform: rotateY(360deg);
+      -webkit-transform: rotateY(360deg);
+      -moz-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    */
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+.top-menu ul li a.active{
+    color: #fff;
+    /*background:#87d54d;*/
+    background:#F94B4B;
+    padding: 18px 20px;
+}
+.top-menu ul li a.active i{
+    color: #fff;
+}
+.top-menu ul li a:hover{
+    color:#fff;
+    background:#F94B4B;
+}
+.top-menu ul li a:hover i{
+    color:#fff;
+}
+@media screen and (max-width: 800px) {
+    span.menu{
+        width: 32px;
+        height: 32px;
+        background: url(../../images/nav.png)no-repeat 0px;
+        display: inline-block;
+        float: right;
+        cursor: pointer;
+        padding: 1.5em 0;
+    }
+    .top-menu{
+        width:100%;
+        display: none;
+        text-align:center;
+        padding:0;
+        margin-top:10px;
+    }
+    .top-menu ul{
+        float:none;
+        width:100%;
+    }
+    .top-menu ul li{
+        display:block;
+        float: none;
+    }
+    .top-menu ul li a.active {
+        padding: 0.5em 0em;
+    }
+    .top-menu ul li a{
+        color:#000;
+        display: block;
+        width: 100%;
+        padding: 0.5em 0em;
+    }
+}
+.header_right{
+    background:none;
+}
+.header_box {
+    width: 50%;
+    margin: 0 auto;
+}
