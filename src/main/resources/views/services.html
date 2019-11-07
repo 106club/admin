@@ -1,40 +1,10 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="~{commons/header::header(~{::title},~{},~{},~{})}">
     <title>贵州高浩律师事务所</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="Realist Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
-    <script type="application/x-javascript"> addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    } </script>
-    <link href="/statics/front/css/bootstrap.css" rel='stylesheet' type='text/css'/>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/statics/front/js/jquery-3-4-1.min.js"></script>
-    <!-- Custom Theme files -->
-    <link href="/statics/front/css/style.css" rel='stylesheet' type='text/css'/>
-    <link href='#css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
-    <link href='#css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
-    <!-- Menu -->
-    <!----font-Awesome----->
-    <link rel="stylesheet" href="/statics/front/fonts/css/font-awesome.min.css">
-    <!----font-Awesome----->
-    <script type="text/javascript" src="js/jquery.fancybox.js"></script>
-    <link rel="stylesheet" type="text/css" href="/statics/front/css/jquery.fancybox.css" media="screen"/>
-    <link rel="shortcut icon" href=" /statics/favicon.ico"/>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.fancybox').fancybox();
-        });
-    </script>
 </head>
 <body>
-<div  th:replace="~{commons/nav::nav}">
+<div  th:replace="~{commons/nav::nav(services)}">
 
 </div>
 <div class="about_top">
@@ -102,18 +72,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="clearfix"></div>
             </div>
         </div>
-        <div class="grid_4">
-            <div class="col-md-12 grid_6" style="text-align:center;">
-                以上是我们法律法务的
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
-
-        <div class="copy" style="margin-top:20px;">
-            <p>Copyright &copy; 2019-2020 贵州高浩律师事务所</p>
-        </div>
     </div>
 </div>
+<div th:replace="~{commons/footer::footer}"></div>
 </body>
 </html>		

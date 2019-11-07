@@ -21,7 +21,9 @@ body a{
 	-ms-transition:0.5s all;
 }
 
-
+.shadow {
+	box-shadow: 0.1rem 0.1rem 0.4rem darkgray;
+}
 
 /*-- responsive-mediaquries --*/
 @media(max-width:1024px){

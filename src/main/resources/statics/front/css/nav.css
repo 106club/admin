@@ -9,7 +9,7 @@
     width:70%;
 }
 .logo img{
-    max-height: 74px;
+    max-height: 75px;
 }
 .top-menu{
     margin-left: 16%;
@@ -41,12 +41,6 @@
     line-height: 1.5em;
 }
 .top-menu ul li:hover i{
-    /*
-      transform: rotateY(360deg);
-      -webkit-transform: rotateY(360deg);
-      -moz-transform: rotateY(360deg);
-    -o-transform: rotateY(360deg);
-    */
     -webkit-transition: 1s;
     -moz-transition: 1s;
     -o-transition: 1s;

@@ -1,38 +1,14 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:replace="~{commons/header::header(~{::title},~{},~{},~{::script})}">
     <title>贵州高浩律师事务所</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="Realist Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
-    <script type="application/x-javascript">
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <link href="/statics/front/css/bootstrap.css" rel='stylesheet' type='text/css'/>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/statics/front/js/jquery-3-4-1.min.js"></script>
-    <!-- Custom Theme files -->
-    <link href="/statics/front/css/style.css" rel='stylesheet' type='text/css'/>
-    <link href='#css?family=Grand+Hotel:400' rel='stylesheet' type='text/css'>
-    <link href='#css?family=Roboto' rel='stylesheet:100,300,400,500,600,700,800,900' type='text/css'>
-    <link rel="shortcut icon" href=" /statics/favicon.ico"/>
-    <!-- Menu -->
-    <!----font-Awesome----->
-    <link rel="stylesheet" href="/statics/front/fonts/css/font-awesome.min.css">
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
-    <!----font-Awesome----->
 </head>
 
 <body>
-<div  th:replace="~{commons/nav::nav}">
+<div  th:replace="~{commons/nav::nav(contact)}">
 
 </div>
 <div class="about_top">

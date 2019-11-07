@@ -3,9 +3,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="贵州高浩律师事务所"/>
+    <link rel="shortcut icon" href=" /statics/favicon.ico"/>
     <title th:replace="${title}">title</title>
-    <link rel="stylesheet" th:href="@{../../statics/front/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{../../statics/bootstrap/css/bootstrap.css}"/>
     <link rel="stylesheet" th:href="@{../../statics/front/fonts/css/font-awesome.min.css}">
+    <link rel="stylesheet" href="/statics/front/fonts/css/font-awesome.min.css">
     <link th:href="@{../../statics/front/css/style.css}" rel='stylesheet' type='text/css'/>
     <link th:href="@{../../statics/front/css/nav.css}" rel="stylesheet"/>
     <link href='#css?family=Grand+Hotel:400}' rel='stylesheet' type='text/css'>
@@ -13,4 +15,11 @@
     <th:block th:replace="${links}"/>
     <th:block th:replace="${style}"/>
     <th:block th:replace="${script}"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
 </head>
